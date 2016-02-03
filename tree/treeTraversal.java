@@ -2,6 +2,45 @@ import java.util.*;
 
 
 public class treeTraversal {
+
+	public void preOrder1(TreeNode root) {
+		if (root == null) {
+			return;
+		}  else {
+			System.out.print(root.key + " ");
+			preOrder1(root.left);
+			preOrder1(root.right);
+
+		}
+		
+	}
+	public void inOrder1(TreeNode root) {
+		if (root == null) {
+			return;
+		}  else {
+			
+			inOrder1(root.left);
+			System.out.print(root.key + " ");
+			inOrder1(root.right);
+
+		}
+		
+	}
+
+	public void postOrder1(TreeNode root) {
+		if (root == null) {
+			return;
+		}  else {
+			
+			postOrder1(root.left);
+			
+			postOrder1(root.right);
+
+			System.out.print(root.key + " ");
+
+		}
+		
+	}
 	public List<Integer> preOrder(TreeNode root) {
 		List<Integer> result = new ArrayList<Integer>();
 		if (root == null) {
@@ -102,5 +141,16 @@ public class treeTraversal {
         System.out.println(result.preOrder(root).toString());
         System.out.println(result.inOrder(root).toString());
         System.out.println(result.postOrder(root).toString());
+
+        System.out.println("Now the same result in recursion: ");
+        System.out.println("Preorder: ");
+        result.preOrder1(root);
+        System.out.println();
+        System.out.println("Inorder: ");
+        result.inOrder1(root);
+        System.out.println();
+        System.out.println("Postorder: ");
+        result.postOrder1(root);
+        System.out.println();
 	}
 }
