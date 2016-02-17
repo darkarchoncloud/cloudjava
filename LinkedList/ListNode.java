@@ -23,6 +23,24 @@ public class ListNode {
 		return head;
 	}
 
+    public static ListNode insert1(ListNode head, int val) {
+        ListNode newNode = new ListNode(val);
+        //check head
+        if (head == null || val <= head.val) {
+
+            newNode.next = head;
+            return newNode;
+        }
+        //The inserted node is not the head node
+        ListNode cur = head;
+        while (cur != null && cur.next.val < val) {
+            cur = cur.next;
+        }
+        newNode.next = cur.next;
+        cur.next = newNode;
+        return head;
+    }
+
 	/*Utility method to convert an int array to single linked list 
 	with circle starts at preLength */
     public static ListNode arrayToListWithCircle(int[] array, int preLength) {
